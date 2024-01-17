@@ -14,22 +14,26 @@
 <body>
     <div class="main">
     <header>
-        <form>
-            <input type="search" placeholder="Enter a city..." required />
-            <input type="submit" value ="search"/>
+        <form class="search-form">
+            <input type="search" placeholder="Enter a city..." required class="search-field" />
+            <input type="submit" value ="search" class="search-button"/>
         </form>
     </header>
     <main>
-    <h1>Krugersdorp</h1>
-    <div>
-    <p>
+        <div class="weather-app-data">
+        <div>
+    <h1 class="city">Krugersdorp</h1>
+    <p class="weather-details">
         Tuesday 17:35, scattered clouds
         <br>
-        Humidity: 45%, Wind: 2.5km/h
+        Humidity: <strong class="humidity">45%</strong>, Wind: <strong class="wind-speed">2.5km/h</strong>
     </p>
 </div>
-<div>
-    ⛅ 24°c
+<div class="temperature">
+    <div class="weather-icon">⛅</div>
+    <div class="weather-temperature">24</div>
+    <div class="weather-unit">°C</div>
+</div>
 </div>
     </main>
     <footer>Coded by<a href="https://github.com/AyandaMajola01" target="_blank">Ayanda Majola</a>
