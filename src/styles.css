@@ -4,7 +4,8 @@ font-family: 'Noto Sans', sans-serif;}
 max-width:700px;
 margin: 45px auto;
 padding:18px;
-box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);}
+border-radius:12px;
+box-shadow: 0 30px 50px rgba(75, 60, 100, 0.1);}
 
 a{color:#38598b;}
 
