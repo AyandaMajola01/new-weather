@@ -22,7 +22,7 @@ iconElement.innerHTML=`<img src="${response.data.condition.icon_url}" class="wea
 function formatDate(date) {
    let minutes= date.getMinutes();
    let hours= date.getHours();
-   let days=["Monday","Tuesday","Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+   let days=["Sunday", "Monday","Tuesday","Wednesday", "Thursday", "Friday", "Saturday"];
 let day=days[date.getDay()];
    
 if(minutes<10) {
@@ -47,7 +47,41 @@ function handleSearchSubmit(event) {
 
 searchCity(searchInput.value);
 }
+
+function displayForecast() {
+  
+
+  let days=[`Monday`, `Tuesday`,`Wednesday`,`Thursday`,`Friday`];
+let forecastHtml="";
+
+  days.forEach(function(day) {
+     forecastHtml=
+    forecastHtml +
+     ` <div class="row">
+    <div class="col-2">
+        <div class="weather-forecast-date">
+        ${day}
+        </div>
+        <div class="weather-forecast-icon">
+        <img src="#" width="42"/>
+        </div>
+        <div class="weather-forecast-temperature">
+        <span class="weather-forecast-maximum"><strong>18°C</strong></span>
+        <span class="weather-forecast-minimum">12°C</span> 
+        </div>
+    </div>
+    </div> 
+    `;
+  });
+  
+  let forecastElement=document.querySelector("#forecast");
+  forecastElement.innerHTML= forecastHtml;
+}
+
 let searchFormElement=document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSearchSubmit);
 
+
 searchCity("Krugersdorp");
+displayForecast();
+
