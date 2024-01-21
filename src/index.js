@@ -10,14 +10,15 @@ function updateWeather(response) {
 let iconElement = document.querySelector("#weather-icon");
 
 iconElement.innerHTML=`<img src="${response.data.condition.icon_url}" class="weather-icon"/>`;
-  console.log(response);
    cityElement.innerHTML=response.data.city;
   timeElement.innerHTML=formatDate(date);
    descriptionElement.innerHTML=response.data.condition.description;
    humidityElement.innerHTML=`${response.data.temperature.humidity}%`;
-   windElement.innerHTML=`${response.data.wind.speed}km/h`;
+   windElement.innerHTML=`${response.data.wind.speed}m/s`;
    temperatureElement.innerHTML=Math.round(temperature);
-}
+
+getForecast(response.data.city) ;
+  }
 
 function formatDate(date) {
    let minutes= date.getMinutes();
@@ -48,7 +49,13 @@ function handleSearchSubmit(event) {
 searchCity(searchInput.value);
 }
 
-function displayForecast() {
+function getForecast(city) {
+let apiKey= "d5cf5f78a130388886eo4652tf8e3a0b";
+let apiUrl=`https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
   
 
   let days=[`Monday`, `Tuesday`,`Wednesday`,`Thursday`,`Friday`];
@@ -83,5 +90,6 @@ searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 
 searchCity("Krugersdorp");
+getForecast("Krugersdorp");
 displayForecast();
 
